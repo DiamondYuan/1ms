@@ -48,6 +48,7 @@
     })();
 
     const res = []
+    let print
     const time = document.getElementById("time");
 
     function displayCurrentTime() {
@@ -57,8 +58,9 @@
         time.textContent = formattedTime
         if (res.length < 100) {
             res.push(formattedTime)
-        } else if (res.length === 100) {
+        } else if (res.length === 100 && !print) {
             console.log(res)
+            print = false;
         }
         setZeroTimeout(displayCurrentTime)
     }
